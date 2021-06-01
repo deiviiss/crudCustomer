@@ -9,7 +9,7 @@ const controller = {}
 controller.getAdd = async (req, res) => {
 
   //asesores
-  const sqlAsesor = 'SELECT asesor FROM asesores';
+  const sqlAsesor = 'SELECT asesor FROM asesores WHERE status = "Activo"';
   const asesores = await db.query(sqlAsesor)
 
   //afores
@@ -69,7 +69,7 @@ controller.getEdit = async (req, res) => {
   const sqlCustomer = 'SELECT c.id, c.cliente, c.curp, c.nss, c.semanas_cotizadas, c.semanas_descontadas, c.fecha_baja, c.fecha_ultimo_retiro, c.fecha_tramite, c.telefono, c.direccion, af.afore, c.monto, a.asesor, s.status, c.observaciones FROM asesores AS a JOIN clientes AS c ON a.id_asesor = c.id_asesor JOIN afores AS af ON af.id_afore = c.id_afore JOIN status AS s ON c.id_status = s.id_status WHERE c.id = ?;'
 
   //asesores
-  const sqlAsesor = 'SELECT asesor FROM asesores;';
+  const sqlAsesor = 'SELECT asesor FROM asesores WHERE status = "Activo";';
   const asesores = await db.query(sqlAsesor)
 
   //afores
