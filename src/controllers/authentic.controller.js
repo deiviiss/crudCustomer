@@ -1,6 +1,6 @@
 //depends
 const passport = require('passport');
-const cifrator = require('../../../../GP/gestoriaPeninsular-nodeJs/server/src/lib/cifrator.js');
+const cifrator = require('../lib/cifrator.js')
 // const cifrator = require('../lib/cifrator')
 const db = require('../database.js');
 
