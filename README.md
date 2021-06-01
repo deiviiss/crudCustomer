@@ -2,4 +2,4 @@
 
 Aplicación CRUD de clientes.
 
-![](https://repository-images.githubusercontent.com/372667185/6a349280-c24e-11eb-987c-1c69e0f91d4c)
+![](https://repository-images.githubusercontent.com/372673656/baadef00-c252-11eb-90a0-a6564d2d5258)
