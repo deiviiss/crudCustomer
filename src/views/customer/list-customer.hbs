@@ -1,0 +1,79 @@
+<div class="container-box">
+
+  <section class="list-customers">
+    <div class="wrapper">
+
+      {{! <h3>Lista de clientes</h3> }}
+
+      <div class="list-title">
+
+        {{#if status}}
+          <h5>{{status}}s</h5>
+        {{else}}
+          <h5>Clientes</h5>
+        {{/if}}
+
+      </div>
+      {{#each customer}}
+        <div class="customer">
+          <div class="grid-list">
+
+            <h6>Cliente</h6>
+            <p>{{cliente}}</p>
+            <h6>Curp</h6>
+            <p>{{curp}}</p>
+            <h6>NSS</h6>
+            <p>{{nss}}</p>
+
+            <h6>Semanas Cotizadas</h6>
+            <p>{{semanas_cotizadas}}</p>
+
+            <h6>Semanas Descontadas</h6>
+            <p>{{semanas_descontadas}}</p>
+            <h6>Afore</h6>
+            <p>{{afore}}</p>
+            <h6>Monto</h6>
+            <p>{{monto}}</p>
+
+            <h6>Fecha último retiro</h6>
+            <p>{{fecha_ultimo_retiro}}</p>
+
+            <h6>Fecha Trámite</h6>
+            <p>{{fecha_tramite}}</p>
+
+            <h6>Asesor</h6>
+            <p>{{asesor}}</p>
+
+            <h6>Status</h6>
+            <p>{{status}}</p>
+
+            {{#if_equal status "Sin fecha"}}
+              <a
+                href="/customer/baja-customer/{{id}}"
+                class="btn btn-danger"
+              >Asignar fecha</a>
+
+              <a
+                href="/customer/edit-customer/{{id}}"
+                class="btn btn-info"
+              >Editar</a>
+            {{/if_equal}}
+
+            {{#if_equal status "Pendiente"}}
+              <p></p>
+              <a
+                href="/customer/edit-customer/{{id}}"
+                class="btn btn-info"
+              >Editar</a>
+            {{/if_equal}}
+
+          </div>
+        </div>
+
+      {{/each}}
+
+    </div>
+
+  </section>
+
+</div>

@@ -1,0 +1,262 @@
+/* Variables */
+
+:root {
+  --gray: #5f616d;
+  --lightGray: #f8f9fe;
+  --cardGray: #f0f3fa;
+  --cardTitle: #6f717e;
+
+  --black: #1d2029;
+  --white: #fefefe;
+
+  --test: 1px solid yellow;
+}
+
+/* remove arrows de atibute step */
+select,
+input[type="number"]::-webkit-inner-spin-button,
+select,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+select,
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+body {
+  background: #d0e1ff;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  /* overflow: hidden; */
+}
+
+/* Para ver los mensajes flash */
+.content {
+  padding-top: 3em;
+  /* padding-bottom: 10px; */
+}
+
+/* contenedor principal */
+.main {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1128px;
+  margin: 0 auto;
+  flex: 1 0 auto; */
+  /* padding: .3%; */
+
+  /* width: 100vw; */
+  /* height: 100vh; */
+}
+
+/* Inicia estilos index */
+
+/* Fin estilos index */
+
+/* Inicia estilos listado clientes */
+/* .container-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 50%;
+  min-height: calc(100vh - 400px);
+} */
+
+.list-customer {
+  width: 90%;
+}
+
+.wrapper {
+  background: #fff;
+
+  border: 1px solid #797979;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.customer {
+  display: flex;
+  font-size: 10px;
+  background: #fff;
+  border-top: 1px solid #797979;
+  padding-top: 10px;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+
+.grid-list {
+  display: grid;
+  grid-gap: 1px;
+  width: 100%;
+  align-items: center;
+}
+
+h6 {
+  font-size: 12px;
+  margin-bottom: 0;
+}
+
+p {
+  /* text-align: start; */
+  margin-bottom: 0;
+  font-size: 12px;
+  justify-self: baseline;
+}
+
+/* Fin estilos listado clientes */
+
+/* Inicio estilos card status */
+.wrap {
+  padding: 0 30px;
+  /* outline: 1px solid red; */
+}
+
+/* =======================  header */
+.header {
+  background: var(--cardGray);
+  padding-bottom: 100px;
+  border-radius: 0 0 20px 20px;
+  padding-top: 2em;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.7em;
+}
+
+.header-total {
+  color: var(--gray);
+  margin: 0.5em 0;
+  font-weight: 700;
+  padding-bottom: 1.5em;
+  border-bottom: 1px solid var(--gray);
+}
+
+.grid-status {
+  display: grid;
+  grid-row-gap: 25px;
+  /* outline: 1px solid yellow; */
+}
+
+/* =======================  cards */
+.top-cards {
+  margin-top: -70px;
+  margin-bottom: 3em;
+}
+
+.card_status {
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--cardGray);
+  text-align: center;
+  padding: 1.7em 0;
+  position: relative;
+}
+
+.card_status-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cardTitle);
+  font-size: 0.9em;
+  font-weight: 700;
+}
+
+.card_status-count a {
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--black);
+}
+
+.card_status-count-number {
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.card_status-count-title {
+  display: block;
+  text-transform: uppercase;
+  color: var(--cardTitle);
+  letter-spacing: 5px;
+  font-size: 0.75em;
+}
+
+.card_status:before {
+  content: "";
+  height: 4px;
+  display: block;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.card_status.finalizado::before {
+  background: #0a4fc6;
+}
+
+/* Fin estilos card status */
+
+/*================================ media querys */
+@media (min-width: 320px) {
+  .grid-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .grid-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .wrap {
+    max-width: 1440px;
+    /* margin: auto; */
+  }
+  .grid-status {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 25px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .grid-status {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 25px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .grid-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .grid-status {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 25px;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+}
+
+@media screen and (min-width: 1440px) {
+}
+
+@media screen and (min-width: 1920px) {
+  .grid-list {
+    display: grid;
+    grid-template-columns: 130px 1fr 130px 1fr 130px 110px;
+  }
+}

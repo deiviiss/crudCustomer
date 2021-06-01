@@ -1,0 +1,235 @@
+<div class="container p-3">
+
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+
+      <div class="card">
+
+        <div class="card-header">
+          <h5 class="card-title text-center">
+            Datos del Cliente
+          </h5>
+        </div>
+
+        <div class="card-body">
+
+          <form
+            action="/customer/edit-customer/{{customer.id}}"
+            name="formulario_cliente"
+            class="needs-validation"
+            method="post"
+          >
+
+            <div class="grid">
+              {{! nombre }}
+              <div class="form-group">
+                <label for="cliente">Nombre</label>
+                <input
+                  value="{{customer.cliente}}"
+                  type="text"
+                  class="form-control"
+                  name="cliente"
+                  placeholder="Nombre del Cliente"
+                  required
+                  autocomplete="off"
+                />
+              </div>
+
+              {{! CURP }}
+              <div class="form-group">
+                <label for="curp">Curp</label>
+                <input
+                  value="{{customer.curp}}"
+                  type="text"
+                  class="form-control"
+                  name="curp"
+                  placeholder="CURP"
+                  required
+                  autocomplete="off"
+                  id="curp"
+                />
+                <div class="invalid-feedback">CURP incorrecta</div>
+              </div>
+
+              {{! NSS }}
+              <div class="form-group">
+                <label for="nss">NSS</label>
+                <input
+                  value="{{customer.nss}}"
+                  type="text"
+                  class="form-control"
+                  name="nss"
+                  placeholder="NSS"
+                  required
+                  autocomplete="off"
+                  id="nss"
+                />
+                <div class="invalid-feedback">NSS incorrecto</div>
+              </div>
+
+              {{! semanas cotizadas }}
+              <div class="form-group">
+                <label for="scotizadas">Semanas Cotizadas</label>
+                <input
+                  value="{{customer.semanas_cotizadas}}"
+                  type="number"
+                  class="form-control"
+                  name="scotizadas"
+                  placeholder="Semanas Cotizadas"
+                  required
+                  autocomplete="off"
+                />
+              </div>
+
+              {{! semanas descontadas }}
+              <div class="form-group">
+                <label for="sdescontadas">Semanas Descontadas</label>
+                <input
+                  value="{{customer.semanas_descontadas}}"
+                  type="number"
+                  class="form-control"
+                  name="sdescontadas"
+                  placeholder="Semanas Descontadas"
+                  required
+                  autocomplete="off"
+                  id="sdescontadas"
+                />
+              </div>
+
+              {{! ultimo retiro }}
+              <div class="form-group">
+                <label for="fretiro">Fecha último retiro</label>
+                <input
+                  value="{{customer.fecha_ultimo_retiro}}"
+                  type="date"
+                  name="fretiro"
+                  id="fretiro"
+                  class="form-control"
+                />
+                <div class="invalid-feedback">Cliente con semanas descontadas</div>
+              </div>
+
+              {{! afore }}
+              <div class="form-group">
+                <label for="afore">Afore</label>
+                <select
+                  name="afore"
+                  class="form-select form-control"
+                  aria-label="Default select example"
+                  id="afore"
+                >
+                  <option value="{{customer.afore}}">{{customer.afore}}</option>
+                  {{#each afores}}
+                    <option value="{{afore}}">{{afore}}</option>
+                  {{/each}}
+                </select>
+                <div class="invalid-feedback">Selecciona una Afore</div>
+              </div>
+
+              {{! monto }}
+              <div class="form-group">
+                <label for="monto">Monto</label>
+                <input
+                  value="{{customer.monto}}"
+                  type="number"
+                  class="form-control"
+                  name="monto"
+                  placeholder="Monto a retirar"
+                  required
+                />
+              </div>
+
+              {{! asesor }}
+              <div class="form-group">
+                <label for="asesor">Asesor</label>
+                <select
+                  name="asesor"
+                  class="form-select form-control"
+                  aria-label="Default select example"
+                  id="asesor"
+                >
+                  <option
+                    value="{{customer.asesor}}"
+                  >{{customer.asesor}}</option>
+                  {{#each asesores}}
+                    <option value="{{asesor}}">{{asesor}}</option>
+                  {{/each}}
+                </select>
+                <div class="invalid-feedback">Selecciona un asesor</div>
+              </div>
+
+              {{! telefono }}
+              <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input
+                  value="{{customer.telefono}}"
+                  type="tel"
+                  pattern="([0-9]{10})"
+                  class="form-control"
+                  name="telefono"
+                  placeholder="Número de teléfono"
+                  required
+                  autocomplete="off"
+                />
+              </div>
+
+              {{! direccion }}
+              <div class="form-group">
+                <label for="direccion">Domicilio</label>
+                <input
+                  value="{{customer.direccion}}"
+                  type="text"
+                  class="form-control"
+                  name="direccion"
+                  placeholder="Dirección"
+                  required
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="observaciones">Observaciones</label>
+                <textarea
+                  value="{{customer.observaciones}}"
+                  class="form-control"
+                  name="observaciones"
+                  id="observaciones"
+                  cols="30"
+                  rows="3"
+                >{{customer.observaciones}}</textarea>
+              </div>
+
+              {{#if_equal customer.status "Pendiente"}}
+                {{! status }}
+                <div class="form-group">
+                  <label for="status">Status</label>
+                  <select
+                    name="status"
+                    class="form-select form-control"
+                    aria-label="Default select example"
+                  >
+                    <option
+                      value="{{customer.status}}"
+                    >{{customer.status}}</option>
+                    {{#each status}}
+                      <option value="{{status}}">{{status}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+              {{/if_equal}}
+
+              <div class="form-group">
+                <button class="btn btn-success btn-block">Actualizar</button>
+              </div>
+
+            </div>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/valida-form.js"></script>

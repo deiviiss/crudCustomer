@@ -1,0 +1,37 @@
+<header class="header">
+  <div class="wrap">
+    <div class="header-grip">
+      <div>
+        <h1>Dashboard</h1>
+        <p class="header-total">Total de Clientes: {{totalClientes}}</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="top-cards">
+  <div class="wrap">
+    <div class="grid-status">
+
+      {{#each customer}}
+        <article class="card_status finalizado">
+
+          <p class="card_status-title">
+            {{status}}s
+          </p>
+
+          <p class="card_status-count">
+
+            <a
+              href="/customer/{{status}}"
+              class="card_status-count-number"
+            >{{total}}</a>
+            <span class="card_status-count-title">Clientes</span>
+
+          </p>
+        </article>
+      {{/each}}
+
+    </div>
+  </div>
+</div>

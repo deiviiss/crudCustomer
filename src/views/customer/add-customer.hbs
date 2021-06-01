@@ -1,0 +1,190 @@
+<div class="container p-3">
+
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+
+      <div class="card">
+
+        <div class="card-header">
+          <h5 class="card-title text-center">
+            Captura cliente
+          </h5>
+        </div>
+
+        <div class="card-body">
+
+          <form
+            action="/customer/add-customer"
+            method="post"
+            name="formulario_cliente"
+            class="needs-validation"
+          >
+
+            <div class="grid">
+              {{! nombre }}
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="cliente"
+                  placeholder="Nombre del Cliente"
+                  autofocus
+                  required
+                  autocomplete="off"
+                />
+
+              </div>
+
+              {{! CURP }}
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="curp"
+                  placeholder="CURP"
+                  required
+                  autocomplete="off"
+                  id="curp"
+                />
+                <div class="invalid-feedback">CURP incorrecta</div>
+              </div>
+
+              {{! NSS }}
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="nss"
+                  placeholder="NSS"
+                  required
+                  autocomplete="off"
+                  id="nss"
+                />
+                <div class="invalid-feedback">NSS incorrecto</div>
+              </div>
+
+              {{! semanas cotizadas }}
+              <div class="form-group">
+                <input
+                  type="number"
+                  class="form-control"
+                  name="scotizadas"
+                  placeholder="Semanas Cotizadas"
+                  required
+                  autocomplete="off"
+                />
+              </div>
+
+              {{! semanas descontadas }}
+              <div class="form-group">
+                <input
+                  type="number"
+                  class="form-control"
+                  name="sdescontadas"
+                  placeholder="Semanas Descontadas"
+                  required
+                  autocomplete="off"
+                  id="sdescontadas"
+                />
+              </div>
+
+              {{! ultimo retiro }}
+              <div class="form-group">
+                <label for="fretiro">Fecha último retiro</label>
+                <input
+                  type="date"
+                  name="fretiro"
+                  id="fretiro"
+                  class="form-control"
+                />
+                <div class="invalid-feedback">Cliente con semanas descontadas</div>
+              </div>
+
+              {{! afore }}
+              <div class="form-group">
+                <select
+                  name="afore"
+                  class="form-select form-control"
+                  aria-label="Default select example"
+                  id="afore"
+                >
+                  <option selected>Afore</option>
+                  {{#each afores}}
+                    <option value="{{afore}}">{{afore}}</option>
+                  {{/each}}
+                </select>
+                <div class="invalid-feedback">Selecciona una Afore</div>
+              </div>
+
+              {{! monto }}
+              <div class="form-group">
+                <input
+                  type="number"
+                  class="form-control"
+                  name="monto"
+                  placeholder="Monto a retirar"
+                  required
+                  autocomplete="off"
+                />
+              </div>
+
+              {{! asesor }}
+              <div class="form-group">
+                <select
+                  name="asesor"
+                  class="form-select form-control"
+                  aria-label="Default select example"
+                  id="asesor"
+                >
+                  <option selected>Asesor</option>
+                  {{#each asesores}}
+                    <option value="{{asesor}}">{{asesor}}</option>
+                  {{/each}}
+                </select>
+                <div class="invalid-feedback">Selecciona un asesor</div>
+              </div>
+
+              {{! telefono }}
+              <div class="form-group">
+                <input
+                  type="tel"
+                  pattern="([0-9]{10})"
+                  class="form-control"
+                  name="telefono"
+                  placeholder="Número de teléfono"
+                  required
+                  autocomplete="off"
+                />
+              </div>
+
+              {{! direccion }}
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="direccion"
+                  placeholder="Dirección"
+                  required
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <button
+                  class="btn btn-success btn-block"
+                  type="submit"
+                >Guardar</button>
+              </div>
+
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/valida-form.js"></script>
