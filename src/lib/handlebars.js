@@ -120,26 +120,27 @@ helpers.formatterPeso = new Intl.NumberFormat('en-US', {
 })
 
 // calcula cotización y da formato de moneda
-helpers.calcularCosto = (cantidad) => {
+helpers.calcularCosto = (cantidad, porcentaje) => {
   let cobro;
   let aseguramiento;
   let cobroCliente;
   let libreCliente;
+  let porcentajeCobro = parseInt(porcentaje) / 100 //para correr dos lugares el punto decimal
 
   if (cantidad > 25001) {
-    cobro = cantidad * .25
+    cobro = cantidad * porcentajeCobro
     aseguramiento = 2000
     cobroCliente = cobro + aseguramiento
     libreCliente = cantidad - cobroCliente
   }
   else if (cantidad > 15000) {
-    cobro = cantidad * .25
+    cobro = cantidad * porcentajeCobro
     aseguramiento = 1700
     cobroCliente = cobro + aseguramiento
     libreCliente = cantidad - cobroCliente
   }
   else {
-    cobro = cantidad * .25
+    cobro = cantidad * porcentajeCobro
     aseguramiento = 1300
     cobroCliente = cobro + aseguramiento
     libreCliente = cantidad - cobroCliente

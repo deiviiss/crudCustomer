@@ -8,9 +8,11 @@ controller.getCalculate = async (req, res) => {
 
 controller.postCalculate = async (req, res) => {
 
-  const cantidad = req.body.cantidad
+  const { cantidad, porcentaje } = req.body
 
-  helpers.calcularCosto(cantidad)
+  console.log(porcentaje);
+
+  helpers.calcularCosto(cantidad, porcentaje)
 
   res.render('calculate/result.hbs', { retiro })
 }
