@@ -1,0 +1,59 @@
+<div class="container-box">
+
+  <section class="list-customers">
+    <div class="wrapper">
+
+      <div class="list-title">
+        <h5>Asesores</h5>
+      </div>
+
+      {{#each asesores}}
+        <div class="customer">
+          <div class="grid-list">
+
+            <h6>Asesor</h6>
+            <p>{{asesor}}</p>
+            <h6>Fecha de Ingreso</h6>
+            <p>{{fecha_ingreso}}</p>
+            <h6>Status</h6>
+            <p>{{status}}</p>
+            {{! <p></p> }}
+
+            <div class="container-buttons">
+              <a
+                href="/edit-asesor/{{id_asesor}}"
+                class="btn btn-success"
+              >Editar</a>
+            </div>
+            <div class="container-buttons">
+              {{#if_equal status "Activo"}}
+                <a
+                  href="/status-asesor/{{id_asesor}}/?status=Baja"
+                  class="btn btn-danger"
+                >Baja</a>
+              {{else}}
+                <a
+                  href="/status-asesor/{{id_asesor}}/?status=Activo"
+                  class="btn btn-info"
+                >Activar</a>
+              {{/if_equal}}
+            </div>
+
+          </div>
+        </div>
+
+      {{else}}
+
+        <div class="customer">
+          <div class="grid-list">
+            <p>Sin asesores</p>
+          </div>
+        </div>
+
+      {{/each}}
+
+    </div>
+
+  </section>
+
+</div>

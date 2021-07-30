@@ -1,7 +1,6 @@
 //depends
 const passport = require('passport');
 const cifrator = require('../lib/cifrator.js')
-// const cifrator = require('../lib/cifrator')
 const db = require('../database.js');
 
 //objeto controller
@@ -26,11 +25,7 @@ controller.postRestorePassword = async (req, res) => {
 
   updatePassword.password = await cifrator.encryptaPassword(password);
 
-  console.log(updatePassword);
-
   const sqlUpdatePassword = 'UPDATE users SET ? WHERE id = ?;';
-
-  console.log(sqlUpdatePassword);
 
   await db.query(sqlUpdatePassword, [updatePassword, id]);
 
@@ -43,13 +38,49 @@ controller.postRestorePassword = async (req, res) => {
 controller.getRegister = (req, res) => {
   res.render('./authentic/register-user.hbs')
 }
-
 //recibe formulario
 controller.postRegister = passport.authenticate('local.register', {
   successRedirect: '/dashboard',
   failureRedirect: '/register-user',
   failureFlash: true
 });
+
+//?=============== lista usuarios
+//envia
+controller.getUsers = async (req, res) => {
+  const sqlUsers = 'SELECT id, fullname, username FROM users ORDER BY fullname;'
+
+  users = await db.query(sqlUsers)
+
+  res.render('authentic/list-users.hbs', { users })
+}
+
+//?=============== editar usuario
+//envia formulario
+controller.getEditUser = async (req, res) => {
+  const { id } = req.params;
+  const sqlEditUser = 'SELECT id, fullname, username FROM users WHERE id = ?;'
+
+  user = await db.query(sqlEditUser, id)
+
+  res.render('authentic/edit-user.hbs', { user: user[0] })
+}
+//recibe formulario
+controller.postEditUser = async (req, res) => {
+  const { id } = req.params;
+  const { fullname, username } = req.body;
+  const sqlUpdateUser = 'UPDATE users SET ? WHERE id = ?'
+
+  const updateUser = {
+    fullname,
+    username
+  }
+
+  await db.query(sqlUpdateUser, [updateUser, id])
+
+  req.flash('success', 'Usuario actualizado')
+  res.redirect('/list-users')
+}
 
 //?=============== login usuario
 //envia formulario
@@ -73,7 +104,7 @@ controller.logout = (req, res) => {
 }
 
 //?=============== dashboard
-//envia
+//envia dashboard
 controller.dashboard = async (req, res) => {
 
   const sqlStatus = 'SELECT s.status, COUNT(s.status) AS total FROM clientes AS c JOIN status AS s ON c.id_status = s.id_status GROUP BY s.status ORDER BY s.status;';

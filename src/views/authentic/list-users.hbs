@@ -1,0 +1,43 @@
+<div class="container-box">
+
+  <section class="list-customers">
+    <div class="wrapper">
+
+      <div class="list-title">
+        <h5>Usuarios</h5>
+      </div>
+
+      {{#each users}}
+        <div class="customer">
+          <div class="grid-list">
+
+            <h6>Nombre</h6>
+            <p>{{fullname}}</p>
+            <h6>Usuario</h6>
+            <p>{{username}}</p>
+
+            {{! <p></p> }}
+
+            <div class="container-buttons">
+              <a href="/edit-user/{{id}}" class="btn btn-success">Editar</a>
+            </div>
+
+          </div>
+        </div>
+
+      {{else}}
+
+        <div class="customer">
+          <div class="grid-list">
+            <p>Sin usuarios</p>
+
+          </div>
+        </div>
+
+      {{/each}}
+
+    </div>
+
+  </section>
+
+</div>

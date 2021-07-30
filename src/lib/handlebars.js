@@ -97,9 +97,12 @@ helpers.formatterEditAlta = (customer) => {
       // fechaBaja = fechaBaja.split("/").reverse().join("-")
       // customer[i].fecha_baja = fechaBaja
 
-      // fechaTramite = fechaTramite.toLocaleDateString('en-GB');
-      // fechaTramite = fechaTramite.split("/").reverse().join("-")
-      // customer[i].fecha_tramite = fechaTramite
+      //valida si hay fecha de tramite convierte a yy-mm-dd
+      if (fechaTramite != null) {
+        fechaTramite = fechaTramite.toLocaleDateString('en-GB');
+        fechaTramite = fechaTramite.split("/").reverse().join("-")
+        customer[i].fecha_tramite = fechaTramite
+      }
 
       //valida si hay fecha de retiro convierte a yy-mm-dd
       if (fechaRetiro != null) {
@@ -111,6 +114,25 @@ helpers.formatterEditAlta = (customer) => {
   }
 
   return customer
+};
+
+//Formato a asesores (fecha)
+helpers.formatterAsesor = (asesor) => {
+
+  if (asesor.length > 0) {
+    //recorrer para acceder a propiedades
+    for (let i = 0; i < asesor.length; i++) {
+
+      let fechaIngreso = asesor[i].fecha_ingreso
+
+      //valida si hay fecha de ingreso convierte a yy-mm-dd
+      if (fechaIngreso != null) {
+        asesor[i].fecha_ingreso = helpers.formatterFecha(fechaIngreso)
+      }
+    }
+  }
+
+  return asesor
 };
 
 //convierte número a mondeda

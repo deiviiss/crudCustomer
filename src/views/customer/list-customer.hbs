@@ -48,23 +48,30 @@
             <p>{{status}}</p>
 
             {{#if_equal status "Sin fecha"}}
-              <a
-                href="/customer/baja-customer/{{id}}"
-                class="btn btn-danger"
-              >Asignar fecha</a>
 
-              <a
-                href="/customer/edit-customer/{{id}}"
-                class="btn btn-info"
-              >Editar</a>
+              <div class="container-buttons">
+                <a
+                  href="/customer/edit-customer/{{id}}"
+                  class="btn btn-info"
+                >Editar</a>
+              </div>
+
+              <div class="container-buttons">
+                <a
+                  href="/customer/baja-customer/{{id}}"
+                  class="btn btn-danger"
+                >Asignar fecha</a>
+              </div>
+
             {{/if_equal}}
 
             {{#if_equal status "Pendiente"}}
-              <p></p>
-              <a
-                href="/customer/edit-customer/{{id}}"
-                class="btn btn-info"
-              >Editar</a>
+              <div class="container-buttons">
+                <a
+                  href="/customer/edit-customer/{{id}}"
+                  class="btn btn-info"
+                >Editar</a>
+              </div>
             {{/if_equal}}
 
           </div>

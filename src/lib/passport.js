@@ -18,15 +18,15 @@ passport.use(
     },
     async (req, username, password, done) => {//define que hará después de autentificar con done
 
-      let { fullname } = req.body
+      let { nombre, apellido } = req.body
 
       let newUser = {
         username,
         password,
-        fullname
+        fullname: nombre + ' ' + apellido
       };
 
-      newUser.password = await cifrator.encrytaPassword(password);//encripta contraseña
+      newUser.password = await cifrator.encryptaPassword(password);//encripta contraseña
 
       const sqlUser = 'SELECT * from users WHERE username = ?;'
 

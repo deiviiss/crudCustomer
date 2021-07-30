@@ -19,9 +19,18 @@ router.post('/restore-password/:id', isLoggedIn, controller.postRestorePassword)
 //?=============== registro usuario
 //envia formulario
 router.get('/register-user', isLoggedIn, controller.getRegister);
-
 //recibe formulario
 router.post('/register-user', isLoggedIn, controller.postRegister);
+
+//?=============== editar usuario
+//envia formulario
+router.get('/edit-user/:id', isLoggedIn, controller.getEditUser);
+//recibe formulario
+router.post('/edit-user/:id', isLoggedIn, controller.postEditUser);
+
+//?=============== listar usuarios
+//lista usuarios
+router.get('/list-users', isLoggedIn, controller.getUsers);
 
 //?=============== login usuario
 //envia formulario

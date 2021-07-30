@@ -14,10 +14,27 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        {{#if user}}
+          <form
+            class="d-flex m-2"
+            action="/customer/busqueda-customer"
+            method="POST"
+          >
+            <input
+              class="form-control me-2"
+              type="search"
+              name="busqueda"
+              placeholder="Buscar Cliente"
+              aria-label="Search"
+              autocomplete="off"
+            />
+            <button class="btn btn-info ml-2" type="submit">Buscar</button>
+          </form>
+        {{/if}}
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
+          {{! <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/">Inicio</a>
-          </li>
+          </li> }}
 
           {{#if user}}
             <li class="nav-item dropdown">
@@ -40,12 +57,35 @@
                   >Dashboard</a></li>
                 <li><a
                     class="dropdown-item"
-                    href="/customer/list-customer"
-                  >Todos</a></li>
+                    href="/customer/add-customer"
+                  >Registrar Cliente</a></li>
                 <li><a
                     class="dropdown-item"
-                    href="/customer/add-customer"
-                  >Agregar Cliente</a></li>
+                    href="/customer/list-customer"
+                  >Todos</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Asesores
+              </a>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <li><a class="dropdown-item" href="/register-asesor">Registrar
+                    Asesor</a></li>
+                <li><a
+                    class="dropdown-item"
+                    href="/list-asesores"
+                  >Todos</a></li>
               </ul>
             </li>
 
@@ -91,6 +131,7 @@
               >
                 <li><a class="dropdown-item" href="/register-user">Registrar
                     Usuario</a></li>
+                <li><a class="dropdown-item" href="/list-users">Todos</a></li>
                 <li><a
                     class="dropdown-item"
                     href="/restore-password/{{user.id}}"

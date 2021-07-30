@@ -7,7 +7,7 @@ const cifrator = {}
 //métodos del objeto
 
 //encripta password
-cifrator.encrytaPassword = async (password) => {
+cifrator.encryptaPassword = async (password) => {
   const salt = await bcryptjs.genSalt(10);//crea cade salt
   const hashPassword = await bcryptjs.hash(password, salt);//cifra la contraseña
 

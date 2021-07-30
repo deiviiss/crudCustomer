@@ -1,7 +1,7 @@
 <div class="container p-3">
 
   <div class="row">
-    <div class="col-md-6 mx-auto">
+    <div class="col-md-6 mx-auto mt-3">
 
       <div class="card">
 
@@ -137,6 +137,19 @@
                   placeholder="Monto a retirar"
                   required
                 />
+              </div>
+
+              {{! fecha tramite }}
+              <div class="form-group">
+                <label for="ftramite">Fecha de trámite</label>
+                <input
+                  value="{{customer.fecha_tramite}}"
+                  type="date"
+                  name="ftramite"
+                  id="ftramite"
+                  class="form-control"
+                />
+                <div class="invalid-feedback">Ingresa fecha de trámite</div>
               </div>
 
               {{! asesor }}

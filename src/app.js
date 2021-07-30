@@ -66,6 +66,7 @@ app.use((req, res, next) => {
 app.use(require('./routes/index.routes'));
 app.use(require('./routes/calculate.routes.js'));
 app.use(require('./routes/authentic.routes'));
+app.use(require('./routes/asesor.routes'));
 app.use('/customer', require('./routes/customer.routes'));
 
 //public

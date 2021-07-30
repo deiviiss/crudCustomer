@@ -14,6 +14,10 @@ router.get('/add-customer', isLoggedIn, controller.getAdd);
 //recibe el formulario
 router.post('/add-customer', isLoggedIn, controller.postAdd);
 
+//* Busca cliente
+//recibe formulario para busqueda
+router.post('/busqueda-customer/', isLoggedIn, controller.postBusqueda)
+
 //* Edita cliente
 //envia formulario para editar
 router.get('/edit-customer/:id', isLoggedIn, controller.getEdit);
