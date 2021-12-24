@@ -1,22 +1,22 @@
-const helpers = require('../lib/handlebars.js');
+// const helpers = require('../lib/handlebars.js');
 
-const controller = {}
+// const controller = {}
 
-controller.getCalculate = async (req, res) => {
-  res.render('calculate/calcular.hbs')
-}
+// controller.getCalculate = async (req, res) => {
+//   res.render('calculate/calcular.hbs')
+// }
 
-controller.postCalculate = async (req, res) => {
+// controller.postCalculate = async (req, res) => {
 
-  const { cantidad, porcentaje } = req.body
+//   const { cantidad, porcentaje } = req.body
 
-  console.log(porcentaje);
+//   console.log(porcentaje);
 
-  helpers.calcularCosto(cantidad, porcentaje)
+//   helpers.calcularCosto(cantidad, porcentaje)
 
-  res.render('calculate/result.hbs', { retiro })
-}
+//   res.render('calculate/result.hbs', { retiro })
+// }
 
 
 
-module.exports = controller;
+// module.exports = controller;

@@ -15,7 +15,10 @@
 
           {{! Agregar la propiedad que evita el autorelleno (autocomplete="off")}}
 
-          <form action="/customer/baja-customer/{{customer.id}}" method="post">
+          <form
+            action="/api/v1/customer/baja-customer/{{customer.id}}"
+            method="post"
+          >
 
             <div class="grid">
               {{! nombre }}

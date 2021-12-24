@@ -57,7 +57,7 @@ controller.postAdd = async (req, res) => {
   await db.query(sqlInsert, [newCustomer])
 
   req.flash('success', 'Cliente guardado')
-  res.redirect('/customer/add-customer')
+  res.redirect('/api/v1/customer/add-customer')
 }
 
 //*edita cliente
@@ -141,7 +141,7 @@ controller.postEdit = async (req, res) => {
   await db.query(sqlUpdate, [updateCustomer, id])
 
   req.flash('success', 'Cliente actualizado')
-  res.redirect('/dashboard')
+  res.redirect('/api/v1/authentic/dashboard')
 }
 
 //*busca cliente
@@ -159,7 +159,7 @@ controller.postBusqueda = async (req, res) => {
   }
   else {
     req.flash('fail', 'Escribe el nombre de un cliente')
-    res.redirect('/dashboard')
+    res.redirect('/api/v1/authentic/dashboard')
   }
 };
 
@@ -196,7 +196,7 @@ controller.postTramite = async (req, res) => {
   await db.query(sqlUpdate, [updateCustomer, id])
 
   req.flash('success', 'Fecha asignada')
-  res.redirect('/dashboard')
+  res.redirect('/api/v1/authentic/dashboard')
 }
 
 //*lista todos los clientes

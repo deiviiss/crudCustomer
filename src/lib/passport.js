@@ -45,7 +45,7 @@ passport.use(
       }
       else {
         const sqlInsertUser = 'INSERT INTO users SET ?;'
-        console.log(sqlInsertUser);
+
         const resultInsert = await db.query(sqlInsertUser, newUser);
 
         newUser.id = resultInsert.insertId;//id del objeto devuelto por MySQL

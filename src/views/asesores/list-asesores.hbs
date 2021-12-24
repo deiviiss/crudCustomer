@@ -21,19 +21,19 @@
 
             <div class="container-buttons">
               <a
-                href="/edit-asesor/{{id_asesor}}"
+                href="/api/v1/asesor/edit-asesor/{{id_asesor}}"
                 class="btn btn-success"
               >Editar</a>
             </div>
             <div class="container-buttons">
               {{#if_equal status "Activo"}}
                 <a
-                  href="/status-asesor/{{id_asesor}}/?status=Baja"
+                  href="/api/v1/asesor/status-asesor/{{id_asesor}}/?status=Baja"
                   class="btn btn-danger"
                 >Baja</a>
               {{else}}
                 <a
-                  href="/status-asesor/{{id_asesor}}/?status=Activo"
+                  href="/api/v1/asesor/status-asesor/{{id_asesor}}/?status=Activo"
                   class="btn btn-info"
                 >Activar</a>
               {{/if_equal}}

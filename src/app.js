@@ -11,6 +11,8 @@ const flash = require('connect-flash');
 const MySQLStore = require('express-mysql-session')(session);
 // import bodyParser from 'body-parser';
 
+const routerApi = require('./routes/index')
+
 const { database } = require('./keys');
 
 //handlebars if_equal
@@ -63,11 +65,7 @@ app.use((req, res, next) => {
 });
 
 // routes
-app.use(require('./routes/index.routes'));
-app.use(require('./routes/calculate.routes.js'));
-app.use(require('./routes/authentic.routes'));
-app.use(require('./routes/asesor.routes'));
-app.use('/customer', require('./routes/customer.routes'));
+routerApi(app)
 
 //public
 app.use(express.static(path.join(__dirname, 'public')));

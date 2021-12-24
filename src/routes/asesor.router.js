@@ -18,7 +18,7 @@ router.post('/register-asesor', isLoggedIn, controller.postAddAsesor);
 
 //?=============== lista asesores
 // lista de asesores
-router.get('/list-asesores', isLoggedIn, controller.getAsesores);
+router.get('/', isLoggedIn, controller.getAsesores);
 
 //cambia status asesor
 router.get('/status-asesor/:id', isLoggedIn, controller.getStatusAsesor);

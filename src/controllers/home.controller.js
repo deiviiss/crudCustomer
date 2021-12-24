@@ -1,8 +1,8 @@
 //objeto controller
 const controller = {}
 
-controller.index = (req, res) => {
-  res.render('index.hbs')
+controller.home = (req, res) => {
+  res.render('home.hbs')
 };
 
 module.exports = controller;

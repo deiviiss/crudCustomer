@@ -30,7 +30,7 @@ controller.postRestorePassword = async (req, res) => {
   await db.query(sqlUpdatePassword, [updatePassword, id]);
 
   req.flash('success', 'Contraseña actualizada');
-  res.redirect('/dashboard');
+  res.redirect('/api/v1/authentic/dashboard');
 };
 
 //?=============== registro usuario
@@ -40,8 +40,8 @@ controller.getRegister = (req, res) => {
 }
 //recibe formulario
 controller.postRegister = passport.authenticate('local.register', {
-  successRedirect: '/dashboard',
-  failureRedirect: '/register-user',
+  successRedirect: '/api/v1/authentic/dashboard',
+  failureRedirect: '/api/v1/authentic/register-user',
   failureFlash: true
 });
 
@@ -79,7 +79,7 @@ controller.postEditUser = async (req, res) => {
   await db.query(sqlUpdateUser, [updateUser, id])
 
   req.flash('success', 'Usuario actualizado')
-  res.redirect('/list-users')
+  res.redirect('/api/v1/authentic/list-users')
 }
 
 //?=============== login usuario
@@ -90,8 +90,8 @@ controller.getLogin = (req, res) => {
 //recibe formulario
 controller.postLogin = (req, res, next) => {
   passport.authenticate('local.login', {
-    successRedirect: '/dashboard',
-    failureRedirect: '/login',
+    successRedirect: '/api/v1/authentic/dashboard',
+    failureRedirect: '/api/v1/authentic/login',
     failureFlash: true
   })(req, res, next);
 }
@@ -100,7 +100,7 @@ controller.postLogin = (req, res, next) => {
 //cierra sesión
 controller.logout = (req, res) => {
   req.logOut();
-  res.redirect('/login');
+  res.redirect('/api/v1/authentic/login');
 }
 
 //?=============== dashboard

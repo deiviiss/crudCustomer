@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">{{user.fullname}}</a>
+      <a class="navbar-brand" href="/api/v1/home">{{user.fullname}}</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -17,7 +17,7 @@
         {{#if user}}
           <form
             class="d-flex m-2"
-            action="/customer/busqueda-customer"
+            action="/api/v1/customer/busqueda-customer"
             method="POST"
           >
             <input
@@ -53,15 +53,15 @@
               >
                 <li><a
                     class="dropdown-item"
-                    href="/dashboard"
+                    href="/api/v1/authentic/dashboard"
                   >Dashboard</a></li>
                 <li><a
                     class="dropdown-item"
-                    href="/customer/add-customer"
+                    href="/api/v1/customer/add-customer"
                   >Registrar Cliente</a></li>
                 <li><a
                     class="dropdown-item"
-                    href="/customer/list-customer"
+                    href="/api/v1/customer/list-customer"
                   >Todos</a></li>
               </ul>
             </li>
@@ -80,11 +80,13 @@
                 class="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <li><a class="dropdown-item" href="/register-asesor">Registrar
-                    Asesor</a></li>
                 <li><a
                     class="dropdown-item"
-                    href="/list-asesores"
+                    href="/api/v1/asesor/register-asesor"
+                  >Registrar Asesor</a></li>
+                <li><a
+                    class="dropdown-item"
+                    href="/api/v1/asesor/"
                   >Todos</a></li>
               </ul>
             </li>
@@ -111,7 +113,14 @@
                     class="dropdown-item"
                     href="https://www.gob.mx/curp/"
                   >Descargar CURP</a></li>
-                <li><a class="dropdown-item" href="/calculate">Cotizar Cliente</a></li>
+                <li><a
+                    class="dropdown-item"
+                    href="/api/v1/recurso/calculate"
+                  >Cotizar Cliente</a></li>
+                <li><a
+                    class="dropdown-item"
+                    href="/api/v1/recurso/afores"
+                  >Directorio Afores</a></li>
               </ul>
             </li>
 
@@ -129,21 +138,29 @@
                 class="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <li><a class="dropdown-item" href="/register-user">Registrar
-                    Usuario</a></li>
-                <li><a class="dropdown-item" href="/list-users">Todos</a></li>
                 <li><a
                     class="dropdown-item"
-                    href="/restore-password/{{user.id}}"
+                    href="/api/v1/authentic/register-user"
+                  >Registrar Usuario</a></li>
+                <li><a
+                    class="dropdown-item"
+                    href="/api/v1/authentic/list-users"
+                  >Todos</a></li>
+                <li><a
+                    class="dropdown-item"
+                    href="/api/v1/authentic/restore-password/{{user.id}}"
                   >Restaurar Contraseña</a></li>
-                <li><a class="dropdown-item" href="/logout">Cerrar Sesión</a></li>
+                <li><a
+                    class="dropdown-item"
+                    href="/api/v1/authentic/logout"
+                  >Cerrar Sesión</a></li>
               </ul>
             </li>
 
           {{else}}
 
             <li class="nav-item">
-              <a class="nav-link" href="/login">Iniciar sesión</a>
+              <a class="nav-link" href="/api/v1/authentic/login">Iniciar sesión</a>
             </li>
 
           {{/if}}

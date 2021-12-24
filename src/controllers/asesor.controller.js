@@ -22,7 +22,7 @@ controller.postAddAsesor = async (req, res) => {
   if (validarAsesor.length != 0) {
 
     req.flash('fail', 'Asesor ya existe')
-    res.redirect('/register-asesor')
+    res.redirect('/api/v1/asesor/register-asesor')
   }
   else {
     const newAsesor = {
@@ -35,7 +35,7 @@ controller.postAddAsesor = async (req, res) => {
     await db.query(sqlInsert, [newAsesor])
 
     req.flash('success', 'Asesor guardado')
-    res.redirect('/')
+    res.redirect('/api/v1/asesor')
   }
 };
 
@@ -65,7 +65,7 @@ controller.getStatusAsesor = async (req, res) => {
   await db.query(sqlUpdateStatusAsesor, [updateStatus, id])
 
   // req.flash('success', 'Asesor actualizado')
-  res.redirect('/list-asesores')
+  res.redirect('/api/v1/asesor')
 }
 
 //*edita asesor
@@ -92,7 +92,7 @@ controller.postEditAsesor = async (req, res) => {
   await db.query(sqlUpdateAsesor, [updateAsesor, id])
 
   req.flash('success', 'Asesor Actualizado')
-  res.redirect('/list-asesores')
+  res.redirect('/api/v1/asesor/')
 }
 
 module.exports = controller;
